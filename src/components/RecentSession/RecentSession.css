@@ -1,0 +1,15 @@
+
+.container-recent-session {
+    width: 100%;
+    max-width: 850px;
+}
+
+.title-recents-session {
+    
+}
+
+.row-recents-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
