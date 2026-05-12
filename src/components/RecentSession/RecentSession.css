@@ -1,11 +1,14 @@
+@import url("./../../styles/general.css");
 
 .container-recent-session {
     width: 100%;
-    max-width: 850px;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
 .title-recents-session {
-    
+    font-size: 1.5rem;
+    font-family: var(--fonte-principal);
 }
 
 .row-recents-cards {
