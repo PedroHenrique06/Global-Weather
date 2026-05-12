@@ -1,3 +1,4 @@
+import { RecentSession } from "../../components/RecentSession/RecentSession";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import "./Home.css";
 
@@ -6,6 +7,7 @@ export function Home() {
         <>
         <div className="container-home">
             <SearchBar></SearchBar>
+            <RecentSession></RecentSession>
         </div>
         </>
     );
