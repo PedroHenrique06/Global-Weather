@@ -1,6 +1,6 @@
 
 body {
-    --border-configuration: 1px inset rgb(228, 228, 228);
+    --border-configuration: 1.5px inset rgb(228, 228, 228);
 }
 
 .container-search-bar {
@@ -13,6 +13,8 @@ body {
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
+
+    background-color: white;
 }
 
 .search-bar-input {
@@ -24,11 +26,11 @@ body {
 
 .search-button {
     border: none;
-    background: none;
+    background: white;
 }
 
 .search-button-image {
     width: 20px;
     height: auto;
-    background: none;
+    background: white;
 }
