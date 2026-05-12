@@ -1,4 +1,12 @@
 
+body {
+    --azul-celeste:  rgba(0, 160, 255, 0.3);
+    background-color: var(--azul-celeste);
+}
+
 .container-home {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 850px;
     margin-top: 5%;
 }
