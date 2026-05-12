@@ -1,8 +1,23 @@
-
+import { useState } from "react";
 import "./WeatherCard.css";
 import weather_icon from "../../assets/weatherCard/cloudy-sun-icon.png";
+import star_filled_icon from "../../assets/weatherCard/star-filled-icon.png";
+import star_empty_icon from "../../assets/weatherCard/star-empty-icon.png";
 
 export function WeatherCard() {
+    const [isFavorite, setIsFavorite] = useState<boolean>(false);
+    const [iconBeingUsed, setIconBeingUsed] = useState<string>(star_empty_icon);
+
+    function toggleFavoriteCard(){
+        setIsFavorite(!isFavorite);
+        
+        if(isFavorite) {
+            setIconBeingUsed(star_filled_icon);
+        }
+        else {
+            setIconBeingUsed(star_empty_icon);
+        }
+    }
 
     return(
         <>
@@ -11,6 +26,15 @@ export function WeatherCard() {
                 <div className="container-city-country">
                     <span className="card-city-text">Natal</span>
                     <span className="card-country-text">Brasil</span>
+                </div>
+
+                <div className="container-favorite-icon-image">
+                    <img 
+                        className="card-favorite-icon-image"
+                        onClick={toggleFavoriteCard}
+                        src={iconBeingUsed}  
+                        alt="Ícone de estrela"
+                        />
                 </div>
                 
                 <div className="container-icon-temperature">
