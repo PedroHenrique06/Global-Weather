@@ -19,7 +19,7 @@ body {
 
 .search-bar-input {
     width: 100%;
-    max-width: 100%;
+    max-width: 450px;
     border: none;
     margin-left: 10px;
 }
