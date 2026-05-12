@@ -6,17 +6,9 @@ import star_empty_icon from "../../assets/weatherCard/star-empty-icon.png";
 
 export function WeatherCard() {
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
-    const [iconBeingUsed, setIconBeingUsed] = useState<string>(star_empty_icon);
 
     function toggleFavoriteCard(){
         setIsFavorite(!isFavorite);
-        
-        if(isFavorite) {
-            setIconBeingUsed(star_filled_icon);
-        }
-        else {
-            setIconBeingUsed(star_empty_icon);
-        }
     }
 
     return(
@@ -32,7 +24,7 @@ export function WeatherCard() {
                     <img 
                         className="card-favorite-icon-image"
                         onClick={toggleFavoriteCard}
-                        src={iconBeingUsed}  
+                        src={ isFavorite ? star_filled_icon : star_empty_icon }  
                         alt="Ícone de estrela"
                         />
                 </div>
