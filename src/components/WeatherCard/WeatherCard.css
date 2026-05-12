@@ -1,0 +1,49 @@
+
+.container-weather-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 180px;
+    height: 150px;
+
+    border-radius: 10px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container-city-country {
+    display: flex;
+    flex-direction: column;
+}   
+
+.card-city-text {
+    font-size: 1.5rem;
+}
+
+.card-country-text {
+    font-size: 0.8rem;
+}
+
+.container-icon-temperature {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.card-icon-image {
+    width: 30px;
+    height: 30px;
+}
+
+.card-temperature-text {
+    font-size: 2.5rem;
+}
+
+.container-real-feel {
+    
+}
+
+.card-real-feel-text {
+    font-size: 0.8rem;
+}
