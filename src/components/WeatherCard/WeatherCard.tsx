@@ -6,7 +6,7 @@ import star_empty_icon from "../../assets/weatherCard/star-empty-icon.png";
 
 /**
  * @description Propriedades do componente WeatherCard.
- */
+*/
 type weatherCardProps = {
     cityName?: string,
     countryName?: string,
@@ -21,7 +21,7 @@ type weatherCardProps = {
 export function WeatherCard({ cityName="Mossoró", countryName="Brasil", weatherIcon=weather_icon, cityTemperature="30", realFeel="32" }:weatherCardProps) {
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
-    function toggleFavoriteCard(){
+    function toggleFavoriteCard() {
         setIsFavorite(!isFavorite);
     }
 
