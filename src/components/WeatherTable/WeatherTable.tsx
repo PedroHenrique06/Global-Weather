@@ -1,30 +1,42 @@
 
 import { WeatherTableItem } from "../WeatherTableItem/WeatherTableItem";
+import { useWeather } from "../../hooks/useWeather";
 import "./WeatherTable.css";
 
+
+
+/*
+    array -> [1, 2, 3, 4, 5, 6]
+
+    tr
+        td
+        td
+    tr 
+        td
+        td
+    tr 
+        td 
+        td
+*/
+
+
 export function WeatherTable() {
+    const { weatherList } = useWeather();
+
     return(
         <>
-            <table className="weather-table">
-                <tbody className="weather-table-body">
-                    <tr className="weather-table-row">
-                       <WeatherTableItem 
-                            cityName="Natal"
-                       />
-                        <WeatherTableItem 
-                            cityName="Mossoró"
-                        />
-                    </tr>
-                    <tr className="weather-table-row">
-                        <WeatherTableItem 
-                            cityName="Barcelona"
-                        />
-                        <WeatherTableItem 
-                            cityName="Pedro Avelino"
-                        />
-                    </tr>
-                </tbody>
-            </table>
+            <div className="weather-grid-table">
+                <div className="weather-grid-table-row">
+                    {
+                        weatherList.map((weatherData) => (
+                            <WeatherTableItem 
+                                cityName={weatherData.name}
+                                cityTemparature={weatherData.main.temp}
+                            />
+                        ))
+                    }
+                </div>
+        </div>
         </>
     );
 }
