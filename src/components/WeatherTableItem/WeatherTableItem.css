@@ -1,0 +1,24 @@
+
+.weather-table-row-item {
+    border: 1px solid gray;
+    padding: 10px;
+}
+
+.container-weather-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-weather-item-image-and-weather-item-temperature {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: center;
+}
+
+.weather-item-image {
+    width: 30px;
+    height: 30px;
+}
