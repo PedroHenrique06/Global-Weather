@@ -1,6 +1,7 @@
 import { FavoriteSession } from "../../components/FavoriteSession/FavoriteSession";
 import { RecentSession } from "../../components/RecentSession/RecentSession";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
+import { WeatherAroundTheWorldSession } from "../../components/WeatherAroundTheWorldSession/WeatherAroundTheWorldSession";
 import "./Home.css";
 
 export function Home() {
@@ -10,6 +11,7 @@ export function Home() {
                 <SearchBar></SearchBar>
                 <RecentSession></RecentSession>
                 <FavoriteSession></FavoriteSession>
+                <WeatherAroundTheWorldSession></WeatherAroundTheWorldSession>
             </div>
         </>
     );

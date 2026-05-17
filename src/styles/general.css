@@ -1,3 +1,4 @@
 :root {
-    --fonte-principal: Arial, Helvetica, sans-serif;
+    --font-family-general: Arial, Helvetica, sans-serif;
+    --font-size-title-h2: 1.5rem;
 }
