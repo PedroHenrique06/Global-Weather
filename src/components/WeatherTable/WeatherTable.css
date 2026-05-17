@@ -1,6 +1,7 @@
 
-.weather-table {
+.weather-grid-table {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
     background-color: white;
-    border-collapse: collapse;
-    width: 100%;
 }
