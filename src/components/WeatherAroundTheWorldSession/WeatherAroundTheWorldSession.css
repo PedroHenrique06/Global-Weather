@@ -1,0 +1,11 @@
+@import url("./../../styles/general.css");
+
+.container-weather-around-the-world-session {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.title-weather-around-the-world-session {
+    font-family: var(--font-family-general);
+}
