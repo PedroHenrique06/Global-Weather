@@ -8,26 +8,36 @@ interface IWeatherProviderProps {
 }
 
 export function WeatherProvider({ children }:IWeatherProviderProps) {
-    const [weatherList, setweatherList] = useState<IWeatherResponse[]>([]);
-    
-      useEffect(() => {
-        async function loadWeather() {
-          const listOfCities:string[] = ['London', 'Tokyo', 'Paris', 'Roma'];
-        
-          const responses = await Promise.all(
-            listOfCities.map((cityName) => getWeatherByCityName(cityName))
-          );
-        
+  const [weatherList, setweatherList] = useState<IWeatherResponse[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+  
+    useEffect(() => {
+      async function loadWeather() {
+        const listOfCities:string[] = ['London', 'Tokyo', 'Paris', 'Roma'];
+      
+        try {
+          setLoading(true);
+          setError(null);
+          const responses = await Promise.all(listOfCities.map((cityName) => getWeatherByCityName(cityName)));
           setweatherList(responses);
         }
+        catch {
+          setError('Erro ao carregar informações climáticas.');
+        }
+        finally {
+          setLoading(false);
+        }
+    }
+          
+    loadWeather();
     
-        loadWeather();
-      }, []); 
+  }, []); 
 
-      return(
-        <WeatherContext.Provider value={{ weatherList }}>
-            { children }
-        </WeatherContext.Provider>
+    return(
+      <WeatherContext.Provider value={{ weatherList, loading, error }}>
+          { children }
+      </WeatherContext.Provider>
 
-      );
+    );
 }
