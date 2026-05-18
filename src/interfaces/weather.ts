@@ -3,6 +3,7 @@
  * @description Representa a estrutura dos dados de interesse retornados pela API.
  */
 export interface IWeatherResponse {
+    id: number;
     name: string;
     
     main: {
@@ -17,5 +18,6 @@ export interface IWeatherResponse {
     weather: {
         icon: string;
         description: string;
+        main: string;
     }[];
 };
