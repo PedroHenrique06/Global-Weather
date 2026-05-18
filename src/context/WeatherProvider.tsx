@@ -14,7 +14,7 @@ export function WeatherProvider({ children }:IWeatherProviderProps) {
   
     useEffect(() => {
       async function loadWeather() {
-        const listOfCities:string[] = ['London', 'Tokyo', 'Paris', 'Roma'];
+        const listOfCities:string[] = ['London', 'Tokyo', 'Paris', 'Mossoró'];
       
         try {
           setLoading(true);
