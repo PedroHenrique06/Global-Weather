@@ -11,14 +11,14 @@ type weatherCardProps = {
     cityName?: string,
     countryName?: string,
     weatherIcon?: string,
-    cityTemperature?: string,
-    realFeel?: string
+    cityTemperature?: number,
+    feelsLike?: number
 }
 
 /**
  * @description Componente representando o card com as informações sobre a cidade, país, clima, ícone correspondente e sensação térmica.
 */
-export function WeatherCard({ cityName="Mossoró", countryName="Brasil", weatherIcon=weather_icon, cityTemperature="30", realFeel="32" }:weatherCardProps) {
+export function WeatherCard({ cityName="Mossoró", countryName="Brasil", weatherIcon=weather_icon, cityTemperature=30, feelsLike=32 }:weatherCardProps) {
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
     function toggleFavoriteCard() {
@@ -45,11 +45,11 @@ export function WeatherCard({ cityName="Mossoró", countryName="Brasil", weather
                 
                 <div className="container-icon-temperature">
                     <img className="card-icon-image" src={weatherIcon} alt="" />
-                    <div className="card-temperature-text">{cityTemperature}°C</div>
+                    <div className="card-temperature-text">{Math.round(cityTemperature)}°C</div>
                 </div>
 
                 <div className="container-real-feel">
-                    <span className="card-real-feel-text">Sensação Térmica {realFeel}°C</span>
+                    <span className="card-real-feel-text">Sensação Térmica {Math.round(feelsLike)}°C</span>
                 </div>
 
             </div>
