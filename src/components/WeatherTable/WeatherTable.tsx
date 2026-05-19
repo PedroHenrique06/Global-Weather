@@ -9,7 +9,6 @@ export function WeatherTable() {
     // Será melhorado futuramente.
     if(loading) {
         return <p>Carregando...</p>;
-        
     }
 
     // Será melhorado futuramente.
@@ -20,17 +19,15 @@ export function WeatherTable() {
     return(
         <>
             <div className="weather-grid-table">
-                <div className="weather-grid-table-row">
-                    {
-                        weatherList.map((weatherData) => (
-                            <WeatherTableItem
-                                key={weatherData.id} 
-                                cityName={weatherData.name}
-                                cityTemparature={weatherData.main.temp}
-                            />
-                        ))
-                    }
-                </div>
+                {
+                    weatherList.map((weatherData) => (
+                        <WeatherTableItem
+                            key={weatherData.id} 
+                            cityName={weatherData.name}
+                            cityTemparature={weatherData.main.temp}
+                        />
+                    ))
+                }
         </div>
         </>
     );
