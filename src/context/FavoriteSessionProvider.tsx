@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { IWeatherResponse } from "../interfaces/weather";
+import type { IWeatherCardInfo } from "../interfaces/weather";
 import { getWeatherByCityName } from "../services/weatherService";
 import { FavoriteSessionContext } from "./FavoriteSessionContext";
 
@@ -8,18 +8,17 @@ interface IFavoriteSessionProviderProps {
 }
 
 export function FavoriteSessionProvider({ children }:IFavoriteSessionProviderProps) {
-    const [favoriteList, setFavoriteList] = useState<IWeatherResponse[]>([]);
+    const [favoriteList, setFavoriteList] = useState<IWeatherCardInfo[]>([]);
+    const [favoriteCities, setFavoriteCities] = useState<string[]>(['Natal', 'Barcelona']);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         async function loadFavoriteList() {
-            const listOfFavorites = ['Natal', 'Barcelona'];
-            
             try {
                 setLoading(true);
                 setError(null);
-                const responses = await Promise.all(listOfFavorites.map((cityName) => getWeatherByCityName(cityName)));
+                const responses = await Promise.all(favoriteCities.map((cityName) => getWeatherByCityName(cityName)));
                 setFavoriteList(responses);
             }
             catch {
@@ -31,11 +30,23 @@ export function FavoriteSessionProvider({ children }:IFavoriteSessionProviderPro
         }
 
         loadFavoriteList();
-    }, []);
+    }, [favoriteCities]);
+
+    function toggleFavoriteCity(cityName: string) {
+        setFavoriteCities((currentListOfFavoriteCities) => {
+            const alreadyExist = currentListOfFavoriteCities.includes(cityName);
+
+            if(alreadyExist) {
+                return currentListOfFavoriteCities.filter((city) => city !== cityName);
+            }
+
+            return [...currentListOfFavoriteCities, cityName];
+        });
+    }
 
     return(
         <>
-            <FavoriteSessionContext.Provider value={{ favoriteList, loading, error }}>
+            <FavoriteSessionContext.Provider value={{ favoriteList, favoriteCities, toggleFavoriteCity, loading, error }}>
                 { children }
             </FavoriteSessionContext.Provider>    
         </>
