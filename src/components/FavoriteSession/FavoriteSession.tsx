@@ -26,10 +26,10 @@ export function FavoriteSession() {
                         favoriteList.map((weatherData) => (
                             <WeatherCard
                                 key={weatherData.id}
-                                cityName={weatherData.name}
-                                cityTemperature={weatherData.main.temp}
-                                countryName={weatherData.sys.country}
-                                feelsLike={weatherData.main.feels_like}
+                                cityName={weatherData.cityName}
+                                cityTemperature={weatherData.temperature}
+                                countryName={weatherData.countryName}
+                                feelsLike={weatherData.feelsLike}
                             />
                         ))
                     }
