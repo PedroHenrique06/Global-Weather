@@ -1,9 +1,9 @@
 
 import { createContext } from "react";
-import { type IWeatherResponse } from "../interfaces/weather";
+import { type IWeatherCardInfo } from "../interfaces/weather";
 
 interface IWeatherContext {
-    weatherList: IWeatherResponse[];
+    weatherList: IWeatherCardInfo[];
     loading: boolean;
     error: string;
 };
