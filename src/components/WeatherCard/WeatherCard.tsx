@@ -1,8 +1,8 @@
-import { useState } from "react";
 import "./WeatherCard.css";
 import weather_icon from "../../assets/weatherCard/cloudy-sun-icon.png";
 import star_filled_icon from "../../assets/weatherCard/star-filled-icon.png";
 import star_empty_icon from "../../assets/weatherCard/star-empty-icon.png";
+import { useFavoriteSession } from "../../hooks/useFavoriteSession";
 
 /**
  * @description Propriedades do componente WeatherCard.
@@ -19,11 +19,8 @@ type weatherCardProps = {
  * @description Componente representando o card com as informações sobre a cidade, país, clima, ícone correspondente e sensação térmica.
 */
 export function WeatherCard({ cityName="Mossoró", countryName="Brasil", weatherIcon=weather_icon, cityTemperature=30, feelsLike=32 }:weatherCardProps) {
-    const [isFavorite, setIsFavorite] = useState<boolean>(false);
-
-    function toggleFavoriteCard() {
-        setIsFavorite(!isFavorite);
-    }
+    const { favoriteCities, toggleFavoriteCity } = useFavoriteSession();
+    const isFavorite = favoriteCities.includes(cityName);
 
     return(
         <>
@@ -37,7 +34,7 @@ export function WeatherCard({ cityName="Mossoró", countryName="Brasil", weather
                 <div className="container-favorite-icon-image">
                     <img 
                         className="card-favorite-icon-image"
-                        onClick={toggleFavoriteCard}
+                        onClick={() => toggleFavoriteCity(cityName)}
                         src={ isFavorite ? star_filled_icon : star_empty_icon }  
                         alt="Ícone de estrela"
                         />
@@ -48,8 +45,8 @@ export function WeatherCard({ cityName="Mossoró", countryName="Brasil", weather
                     <div className="card-temperature-text">{Math.round(cityTemperature)}°C</div>
                 </div>
 
-                <div className="container-real-feel">
-                    <span className="card-real-feel-text">Sensação Térmica {Math.round(feelsLike)}°C</span>
+                <div className="container-feels-like">
+                    <span className="card-feels-like-text">Sensação Térmica {Math.round(feelsLike)}°C</span>
                 </div>
 
             </div>
