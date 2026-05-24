@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { IWeatherResponse } from "../interfaces/weather";
+import type { IWeatherCardInfo } from "../interfaces/weather";
 import { getWeatherByCityName } from "../services/weatherService";
 import { WeatherContext } from "./WeatherContext";
 
@@ -8,7 +8,7 @@ interface IWeatherProviderProps {
 }
 
 export function WeatherProvider({ children }:IWeatherProviderProps) {
-  const [weatherList, setweatherList] = useState<IWeatherResponse[]>([]);
+  const [weatherList, setweatherList] = useState<IWeatherCardInfo[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   
