@@ -45,4 +45,5 @@ export interface IWeatherCardInfo {
     feelsLike: number;
     weatherStatus: string;
     weatherDescription: string; 
+    iconCode: string;
 }
