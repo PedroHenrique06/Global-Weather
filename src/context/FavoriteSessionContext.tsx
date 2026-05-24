@@ -1,8 +1,10 @@
 import { createContext } from "react";
-import type { IWeatherResponse } from "../interfaces/weather";
+import type { IWeatherCardInfo } from "../interfaces/weather";
 
 interface IFavoriteSessionContext {
-    favoriteList: IWeatherResponse[];
+    favoriteList: IWeatherCardInfo[];
+    favoriteCities: string[];
+    toggleFavoriteCity: (cityName:string) => void;
     loading: boolean;
     error: string | null;
 };
