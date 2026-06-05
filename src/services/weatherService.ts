@@ -2,7 +2,12 @@ import type { IWeatherCardInfo, IWeatherResponse } from "../interfaces/weather";
 import { mapWeatherResponseToCardInfo } from "../mappers/weatherMapper";
 import { api } from "./api";
 
-export async function getWeatherByCityName(cityName: string):Promise<IWeatherCardInfo> {
+/**
+ * @description Por uma decisão de projeto o objeto recebido da chamada da api é do tipo IWeatherResponse, porém no retorno da função ele transformado atraves de um mapper para corresponder ao formato esperado pela aplicação.  
+ * @param {string} cityName Nome da cidade.
+ * @returns {IWeatherCardInfo} Informações climáticas da cidade buscada.
+ */
+export async function getWeatherByCityName(cityName: string): Promise<IWeatherCardInfo> {
 
     try {
         const response = await api.get<IWeatherResponse>('/weather', {
