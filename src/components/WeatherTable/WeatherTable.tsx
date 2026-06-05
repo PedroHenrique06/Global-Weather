@@ -23,8 +23,8 @@ export function WeatherTable() {
                     weatherList.map((weatherData) => (
                         <WeatherTableItem
                             key={weatherData.id} 
-                            cityName={weatherData.name}
-                            cityTemparature={weatherData.main.temp}
+                            cityName={weatherData.cityName}
+                            cityTemparature={weatherData.temperature}
                         />
                     ))
                 }
