@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { FavoriteSessionContext } from '../context/FavoriteSessionContext';
+import { FavoriteSessionContext } from '../contexts/FavoriteSessionContext';
 
 export function useFavoriteSession() {
     const context = useContext(FavoriteSessionContext);
