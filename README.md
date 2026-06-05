@@ -1,73 +1,99 @@
-# React + TypeScript + Vite
+# Weather Dashboard ⛅🗺️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web desenvolvida com React e TypeScript para consulta e visualização de informações climáticas de cidades ao redor do mundo.
 
-Currently, two official plugins are available:
+## Funcionalidades 👷✔️
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Consulta de dados climáticos em tempo real
+- Exibição de temperatura atual
+- Exibição da sensação térmica
+- Informações sobre condições climáticas
+- Gerenciamento de cidades favoritas
+- Interface responsiva
 
-## React Compiler
+## Tecnologias Utilizadas 👨‍💻🧑‍🎓
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- TypeScript
+- Vite
+- Axios
+- Context API
+- OpenWeather API
 
-## Expanding the ESLint configuration
+## Instalação ⚙️🧑‍🏭
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Clone o repositório:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/PedroHenrique06/Global-Weather.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Acesse a pasta do projeto:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd weather-dashboard
 ```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+## Configuração ⚙️👷‍♂️
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```env
+VITE_OPENWEATHER_API_KEY=sua_chave_aqui
+```
+
+Você pode obter uma chave gratuitamente através da plataforma OpenWeather.
+
+## Executando o Projeto 🏃⏯️
+
+Modo de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Build para produção:
+
+```bash
+npm run build
+```
+
+Pré-visualização da build:
+
+```bash
+npm run preview
+```
+
+## Estrutura do Projeto 🏛️📖
+
+```text
+src/
+├── assets/
+├── components/
+├── contexts/
+├── hooks/
+├── interfaces/
+├── mappers/
+├── services/
+└── styles/
+```
+
+## Objetivo 🤔💭
+
+Este projeto foi desenvolvido com o objetivo de praticar:
+
+- Consumo de APIs REST
+- React com TypeScript
+- Gerenciamento de estado com Context API
+- Organização e arquitetura de projetos frontend
+- Boas práticas de desenvolvimento
+
+## Licença 📚🖋️
+
+Projeto desenvolvido para fins de estudo.
