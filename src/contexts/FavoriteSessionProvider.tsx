@@ -37,11 +37,16 @@ export function FavoriteSessionProvider({ children }:IFavoriteSessionProviderPro
             const alreadyExist = currentListOfFavoriteCities.includes(cityName);
 
             if(alreadyExist) {
+                removeFromCardInfoList(cityName);
                 return currentListOfFavoriteCities.filter((city) => city !== cityName);
             }
 
             return [...currentListOfFavoriteCities, cityName];
         });
+    }
+
+    function removeFromCardInfoList(cityName: string) {
+        setFavoriteList(favoriteList.filter((cardInfoItem) => cardInfoItem.cityName !== cityName));
     }
 
     return(
