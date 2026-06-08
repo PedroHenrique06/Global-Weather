@@ -5,7 +5,7 @@ import { api } from "./api";
 /**
  * @description Por uma decisão de projeto o objeto recebido da chamada da api é do tipo IWeatherResponse, porém no retorno da função ele transformado atraves de um mapper para corresponder ao formato esperado pela aplicação.  
  * @param {string} cityName Nome da cidade.
- * @returns {IWeatherCardInfo} Informações climáticas da cidade buscada.
+ * @returns {IWeatherCardInfo} Informações climáticas da cidade buscada no formato de um objeto do tipo IWeatherCardInfo.
  */
 export async function getWeatherByCityName(cityName: string): Promise<IWeatherCardInfo> {
 
