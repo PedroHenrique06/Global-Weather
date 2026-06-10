@@ -12,32 +12,33 @@ export function WeatherProvider({ children }:IWeatherProviderProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   
-    useEffect(() => {
-      async function loadWeather() {
-        const listOfCities:string[] = ['London', 'Tokyo', 'Paris', 'Mossoró'];
-      
-        try {
-          setLoading(true);
-          setError(null);
-          const responses = await Promise.all(listOfCities.map((cityName) => getWeatherByCityName(cityName)));
-          setweatherList(responses);
-        }
-        catch {
-          setError('Erro ao carregar informações climáticas.');
-        }
-        finally {
-          setLoading(false);
-        }
-    }
-          
-    loadWeather();
+  useEffect(() => {
+    async function loadWeather() {
+      const listOfCities:string[] = ['London', 'Tokyo', 'Paris', 'Mossoró'];
     
-  }, []); 
+      try {
+        setLoading(true);
+        setError(null);
+        const responses = await Promise.all(listOfCities.map((cityName) => getWeatherByCityName(cityName)));
+        setweatherList(responses);
+      }
+      catch {
+        setError('Erro ao carregar informações climáticas.');
+      }
+      finally {
+        setLoading(false);
+      }
+  }
+        
+  loadWeather();
+  
+}, []); 
 
-    return(
+  return(
+    <>
       <WeatherContext.Provider value={{ weatherList, loading, error }}>
           { children }
       </WeatherContext.Provider>
-
-    );
+    </>
+  );
 }
