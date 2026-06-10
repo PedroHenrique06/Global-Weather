@@ -3,11 +3,14 @@ import './index.css'
 import App from './App.tsx'
 import { WeatherProvider } from './contexts/WeatherProvider.tsx'
 import { FavoriteSessionProvider } from './contexts/FavoriteSessionProvider.tsx'
+import { SearchProvider } from './contexts/SearchProvider.tsx'
 
 createRoot(document.getElementById('root')!).render(
-    <FavoriteSessionProvider>
-        <WeatherProvider>
-            <App />
-        </WeatherProvider>
-    </FavoriteSessionProvider>
+    <SearchProvider>
+        <FavoriteSessionProvider>
+            <WeatherProvider>
+                <App />
+            </WeatherProvider>
+        </FavoriteSessionProvider>
+    </SearchProvider>
 )
